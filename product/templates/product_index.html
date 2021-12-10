@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>product_index</title>
 </head>
 <body>
-{% extends "base.html" %}
-{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <hr>
+    <a href="http://127.0.0.1:8000/admin/">Admin</a>&nbsp; &nbsp;
+    <a href="http://127.0.0.1:8000/product/">Products</a>
+    {% for product in products %}
+    <h2><a href="{% url 'product_detail' product.pk%}">{{ product.prod_name }}</a></h2>
+    <small>
+        {{ product.created_on.date }} |&nbsp; {{product.updated_on.date}}
+    </small>
+    <p>{{ product.prod_detail | slice:":400" }}...</p>
+    <p Product_weight :>{{ product.weight }}</p>
+    <p Product_price :>{{ product.price }}</p>
 
-{% for product in productss %}
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{ product.prod_name }}</h5>
-    <p class="card-text">{{ product.weight }}</p>
-    <p class="card-text">Price - {{ product.price }}</p>
-    <a href="#" class="btn btn-primary">Buy Now</a>
+
   </div>
 </div>
 {% endfor %}
-{% endblock %}
-
 </body>
 </html>

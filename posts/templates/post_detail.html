@@ -5,12 +5,10 @@
     <small>
         {{ post.created_on.date }} |&nbsp;  {{post.updated_on.date}} &nbsp;
     </small><span>Creator First Name : {{post.user.first_name}}</span>
-    </p><span>Creator Last Name : {{post.user.last_name}}</span>
-    </p><span>Creator Email : {{post.user.email}}</span>
-    </p><span>Creator Password : {{post.user.password}}</span>
+    <span>Creator Last Name : {{post.user.last_name}}</span>
+    <span>Creator Email : {{post.user.email}}</span>
     <p>{{ post.text_body | linebreaks }}</p>
     <h3>Leave a comment:</h3>
-    </p>
     {% if user.is_authenticated %}
     <form action="/posts/{{ post.pk }}/" method="post">
         {% csrf_token %}

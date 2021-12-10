@@ -1,6 +1,3 @@
-
-
-# Create your views here.
 from django.shortcuts import render
 from posts.models import Post, Comment
 from posts.form import CommentForm
